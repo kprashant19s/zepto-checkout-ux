@@ -144,8 +144,8 @@ zepto-checkout-ux/
 
 ## Author
 
-**[Your Name]** — Product Manager  
-[LinkedIn](https://linkedin.com/in/YOUR_HANDLE) · [Portfolio](https://yourportfolio.com) · [Email](mailto:you@email.com)
+**Prashant Kumar**  
+[LinkedIn](https://www.linkedin.com/in/prashant-kumar-19s/) · [Portfolio](https://yourportfolio.com) · [Email](prashantwork0445@gmail.com)
 
 ---
 
