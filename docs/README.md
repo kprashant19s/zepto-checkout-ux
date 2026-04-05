@@ -145,7 +145,7 @@ zepto-checkout-ux/
 ## Author
 
 **Prashant Kumar**  
-[LinkedIn](https://www.linkedin.com/in/prashant-kumar-19s/) · [Portfolio](https://yourportfolio.com) · [Email](prashantwork0445@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/prashant-kumar-19s/) · [Gmail](prashantwork0445@gmail.com)
 
 ---
 
