@@ -13,7 +13,7 @@
 
 ## 🔗 Quick Links
 
-[![Figma Prototype](https://img.shields.io/badge/Prototype-Live_Demo-6C47FF?style=for-the-badge)](https://kprashant19s.github.io/zepto-checkout-ux/design/prototypes/zepto_checkout_prototype.html)
+[![Live Prototype](https://img.shields.io/badge/Prototype-Live_Demo-6C47FF?style=for-the-badge)](https://kprashant19s.github.io/zepto-checkout-ux/design/prototypes/zepto_checkout_prototype.html)
 
 ---
 
@@ -128,9 +128,9 @@ zepto-checkout-ux/
 │   ├── heuristic-audit.md     ← Nielsen heuristic evaluation
 │   └── competitive-analysis.md
 ├── design/
-│   ├── wireframes/            ← Lo-fi wireframe exports (PNG)
+│   ├── wireframes/            ← Wireframe process notes
 │   ├── prototypes/            ← Figma prototype links & notes
-│   └── assets/                ← Before/after screenshots
+│   └── assets/                ← Design assets
 └── metrics/
     └── impact-model.md        ← RICE scoring + metric definitions
 ```
