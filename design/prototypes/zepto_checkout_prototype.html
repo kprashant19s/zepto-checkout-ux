@@ -1,0 +1,235 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.root{padding:16px;color:var(--color-text-primary)}
+.screen-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.snav{padding:6px 12px;border-radius:20px;border:0.5px solid var(--color-border-secondary);font-size:11px;font-weight:500;cursor:pointer;background:transparent;color:var(--color-text-secondary);transition:all .15s}
+.snav.active{background:#6C47FF;color:#fff;border-color:#6C47FF}
+.phone-wrap{display:flex;justify-content:center}
+.phone{width:280px;height:560px;border-radius:36px;border:6px solid #1a1a1a;overflow:hidden;position:relative;background:#fff;box-shadow:0 8px 32px rgba(0,0,0,0.18)}
+.screen{display:none;height:100%;flex-direction:column;background:#f8f8f8}
+.screen.active{display:flex}
+.topbar{background:#6C47FF;padding:14px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.topbar-title{color:#fff;font-size:15px;font-weight:600}
+.topbar-back{color:#fff;font-size:18px;cursor:pointer}
+.content{flex:1;overflow-y:auto;padding:12px}
+.bottom-btn{flex-shrink:0;padding:12px}
+.btn-green{background:#00C853;color:#fff;width:100%;padding:14px;border-radius:12px;border:none;font-size:15px;font-weight:600;cursor:pointer}
+.btn-purple{background:#6C47FF;color:#fff;width:100%;padding:14px;border-radius:12px;border:none;font-size:15px;font-weight:600;cursor:pointer}
+.btn-outline{background:#fff;color:#6C47FF;width:100%;padding:14px;border-radius:12px;border:1.5px solid #6C47FF;font-size:15px;font-weight:600;cursor:pointer;margin-top:8px}
+
+.cart-item{background:#fff;border-radius:12px;padding:12px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.item-img{width:48px;height:48px;border-radius:8px;background:#F0EDFF;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.item-info{flex:1}
+.item-name{font-size:13px;font-weight:500;color:#1a1a1a;margin-bottom:2px}
+.item-qty{font-size:11px;color:#888}
+.item-price{font-size:14px;font-weight:600;color:#6C47FF}
+.cart-total{background:#fff;border-radius:12px;padding:12px;margin-top:4px}
+.total-row{display:flex;justify-content:space-between;font-size:12px;color:#666;margin-bottom:6px}
+.total-row.final{font-size:14px;font-weight:600;color:#1a1a1a;border-top:0.5px solid #eee;padding-top:8px;margin-top:4px}
+
+.confirm-card{background:#F0EDFF;border-radius:12px;padding:12px;margin-bottom:12px;border:1.5px solid #6C47FF}
+.confirm-label{font-size:10px;font-weight:600;color:#6C47FF;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+.confirm-addr{font-size:13px;font-weight:500;color:#1a1a1a;margin-bottom:2px}
+.confirm-sub{font-size:11px;color:#666}
+.addr-list-label{font-size:11px;font-weight:600;color:#888;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.addr-card{background:#fff;border-radius:10px;padding:12px;margin-bottom:8px;display:flex;align-items:center;gap:10px;border:0.5px solid #eee;cursor:pointer}
+.addr-tag{background:#EEF0FF;color:#6C47FF;font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;flex-shrink:0}
+.addr-tag.work{background:#E8F5E9;color:#2E7D32}
+.addr-tag.other{background:#FFF8E1;color:#E65100}
+.addr-text{flex:1}
+.addr-name{font-size:13px;font-weight:500;color:#1a1a1a}
+.addr-detail{font-size:11px;color:#888;margin-top:1px}
+
+.upsell-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.upsell-title{font-size:13px;font-weight:600;color:#1a1a1a}
+.skip-btn{font-size:12px;color:#6C47FF;font-weight:500;cursor:pointer;background:none;border:none;padding:0}
+.upsell-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
+.upsell-item{background:#fff;border-radius:10px;padding:10px;min-width:80px;text-align:center;flex-shrink:0;border:0.5px solid #eee}
+.upsell-emoji{font-size:24px;margin-bottom:4px}
+.upsell-name{font-size:10px;color:#333;margin-bottom:3px}
+.upsell-price{font-size:11px;font-weight:600;color:#6C47FF;margin-bottom:4px}
+.upsell-add{background:#6C47FF;color:#fff;border:none;border-radius:6px;padding:3px 10px;font-size:10px;cursor:pointer}
+.order-summary{background:#fff;border-radius:12px;padding:12px}
+.summary-title{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:8px}
+.summary-row{display:flex;justify-content:space-between;font-size:12px;color:#666;margin-bottom:5px}
+
+.pay-option{background:#fff;border-radius:10px;padding:12px;margin-bottom:8px;display:flex;align-items:center;gap:10px;border:0.5px solid #eee;cursor:pointer}
+.pay-option.selected{border-color:#6C47FF;background:#F0EDFF}
+.pay-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.pay-name{font-size:13px;font-weight:500;color:#1a1a1a}
+.pay-sub{font-size:11px;color:#888;margin-top:1px}
+.pay-radio{width:16px;height:16px;border-radius:50%;border:2px solid #6C47FF;margin-left:auto;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pay-radio.checked::after{content:'';width:8px;height:8px;border-radius:50%;background:#6C47FF;display:block}
+
+.recovery-icon{text-align:center;padding:20px 0 12px}
+.recovery-emoji{font-size:48px}
+.recovery-title{font-size:16px;font-weight:600;color:#1a1a1a;text-align:center;margin-bottom:6px}
+.recovery-sub{font-size:12px;color:#666;text-align:center;margin-bottom:16px;line-height:1.5}
+.recovery-options{display:flex;flex-direction:column;gap:8px}
+.recovery-opt{background:#fff;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;border:0.5px solid #eee;cursor:pointer}
+.recovery-opt-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.recovery-opt-name{font-size:13px;font-weight:500;color:#1a1a1a}
+.recovery-opt-sub{font-size:11px;color:#888}
+.retry-btn{background:#fff;color:#6C47FF;width:100%;padding:12px;border-radius:12px;border:1.5px solid #6C47FF;font-size:13px;font-weight:500;cursor:pointer;margin-top:8px}
+
+.nav-row{display:flex;justify-content:space-between;margin-top:16px}
+.nav-btn{padding:8px 16px;border-radius:8px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);font-size:12px;cursor:pointer}
+.nav-btn:disabled{opacity:0.3;cursor:not-allowed}
+.screen-label{text-align:center;font-size:11px;color:var(--color-text-secondary);margin-top:10px}
+</style>
+
+<div class="root">
+<div class="screen-nav" id="snav">
+  <button class="snav active" onclick="goScreen(0)">1 · Cart</button>
+  <button class="snav" onclick="goScreen(1)">2 · Address</button>
+  <button class="snav" onclick="goScreen(2)">3 · Upsell</button>
+  <button class="snav" onclick="goScreen(3)">4 · Payment</button>
+  <button class="snav" onclick="goScreen(4)">5 · Recovery</button>
+</div>
+
+<div class="phone-wrap">
+<div class="phone">
+
+  <div id="s0" class="screen active">
+    <div class="topbar"><span class="topbar-title">My Cart</span></div>
+    <div class="content">
+      <div class="cart-item">
+        <div class="item-img">🥛</div>
+        <div class="item-info"><div class="item-name">Amul Milk 500ml</div><div class="item-qty">Qty: 2</div></div>
+        <div class="item-price">₹56</div>
+      </div>
+      <div class="cart-item">
+        <div class="item-img">🍞</div>
+        <div class="item-info"><div class="item-name">Brown Bread</div><div class="item-qty">Qty: 1</div></div>
+        <div class="item-price">₹45</div>
+      </div>
+      <div class="cart-item">
+        <div class="item-img">🥚</div>
+        <div class="item-info"><div class="item-name">Eggs (6 pack)</div><div class="item-qty">Qty: 1</div></div>
+        <div class="item-price">₹72</div>
+      </div>
+      <div class="cart-total">
+        <div class="total-row"><span>Subtotal</span><span>₹173</span></div>
+        <div class="total-row"><span>Delivery fee</span><span style="color:#00C853">FREE</span></div>
+        <div class="total-row"><span>Platform fee</span><span>₹5</span></div>
+        <div class="total-row final"><span>Total</span><span>₹178</span></div>
+      </div>
+    </div>
+    <div class="bottom-btn"><button class="btn-green" onclick="goScreen(1)">Proceed to Checkout →</button></div>
+  </div>
+
+  <div id="s1" class="screen">
+    <div class="topbar"><span class="topbar-back" onclick="goScreen(0)">←</span><span class="topbar-title">Delivery Address</span></div>
+    <div class="content">
+      <div class="confirm-card">
+        <div class="confirm-label">Delivering here?</div>
+        <div class="confirm-addr">123, Sector 4, Dwarka</div>
+        <div class="confirm-sub">New Delhi · 0.2 km from you</div>
+      </div>
+      <div class="addr-list-label">Other saved addresses</div>
+      <div class="addr-card"><span class="addr-tag work">Work</span><div class="addr-text"><div class="addr-name">Cyber Hub, Tower B</div><div class="addr-detail">Gurugram · 18 km away</div></div></div>
+      <div class="addr-card"><span class="addr-tag other">Other</span><div class="addr-text"><div class="addr-name">45, MG Road</div><div class="addr-detail">Bangalore · 1,740 km away</div></div></div>
+    </div>
+    <div class="bottom-btn"><button class="btn-green" onclick="goScreen(2)">Confirm Address →</button></div>
+  </div>
+
+  <div id="s2" class="screen">
+    <div class="topbar"><span class="topbar-back" onclick="goScreen(1)">←</span><span class="topbar-title">Almost there!</span></div>
+    <div class="content">
+      <div class="upsell-header">
+        <span class="upsell-title">Grab before checkout?</span>
+        <button class="skip-btn" onclick="goScreen(3)">Skip & Pay →</button>
+      </div>
+      <div class="upsell-strip">
+        <div class="upsell-item"><div class="upsell-emoji">🧀</div><div class="upsell-name">Cheese Slice</div><div class="upsell-price">₹55</div><button class="upsell-add">+ Add</button></div>
+        <div class="upsell-item"><div class="upsell-emoji">🧴</div><div class="upsell-name">Dahi 400g</div><div class="upsell-price">₹42</div><button class="upsell-add">+ Add</button></div>
+        <div class="upsell-item"><div class="upsell-emoji">🧃</div><div class="upsell-name">Real Juice</div><div class="upsell-price">₹38</div><button class="upsell-add">+ Add</button></div>
+      </div>
+      <div class="order-summary">
+        <div class="summary-title">Order Summary</div>
+        <div class="summary-row"><span>Amul Milk 500ml x2</span><span>₹56</span></div>
+        <div class="summary-row"><span>Brown Bread x1</span><span>₹45</span></div>
+        <div class="summary-row"><span>Eggs (6 pack) x1</span><span>₹72</span></div>
+        <div class="summary-row" style="font-weight:600;color:#1a1a1a;border-top:0.5px solid #eee;padding-top:8px;margin-top:4px"><span>Total</span><span>₹178</span></div>
+      </div>
+    </div>
+    <div class="bottom-btn"><button class="btn-green" onclick="goScreen(3)">Proceed to Payment →</button></div>
+  </div>
+
+  <div id="s3" class="screen">
+    <div class="topbar"><span class="topbar-back" onclick="goScreen(2)">←</span><span class="topbar-title">Payment</span></div>
+    <div class="content">
+      <div class="pay-option selected">
+        <div class="pay-icon" style="background:#F0EDFF">📱</div>
+        <div><div class="pay-name">UPI</div><div class="pay-sub">PhonePe / GPay / Paytm</div></div>
+        <div class="pay-radio checked"></div>
+      </div>
+      <div class="pay-option">
+        <div class="pay-icon" style="background:#E8F5E9">💳</div>
+        <div><div class="pay-name">Credit / Debit Card</div><div class="pay-sub">Visa, Mastercard, Rupay</div></div>
+        <div class="pay-radio"></div>
+      </div>
+      <div class="pay-option">
+        <div class="pay-icon" style="background:#FFF8E1">⚡</div>
+        <div><div class="pay-name">Zepto Pay</div><div class="pay-sub">Wallet balance: ₹0</div></div>
+        <div class="pay-radio"></div>
+      </div>
+      <div class="pay-option">
+        <div class="pay-icon" style="background:#F5F5F5">💵</div>
+        <div><div class="pay-name">Cash on Delivery</div><div class="pay-sub">Pay when order arrives</div></div>
+        <div class="pay-radio"></div>
+      </div>
+    </div>
+    <div class="bottom-btn"><button class="btn-purple" onclick="goScreen(4)">Pay ₹178 →</button></div>
+  </div>
+
+  <div id="s4" class="screen">
+    <div class="topbar"><span class="topbar-title">Payment</span></div>
+    <div class="content">
+      <div class="recovery-icon"><div class="recovery-emoji">⚠️</div></div>
+      <div class="recovery-title">UPI didn't connect</div>
+      <div class="recovery-sub">PhonePe timed out. Try a different payment method to complete your order.</div>
+      <div class="recovery-options">
+        <div class="recovery-opt">
+          <div class="recovery-opt-icon" style="background:#E8F5E9">💳</div>
+          <div><div class="recovery-opt-name">Pay by Card</div><div class="recovery-opt-sub">Visa, Mastercard, Rupay</div></div>
+        </div>
+        <div class="recovery-opt">
+          <div class="recovery-opt-icon" style="background:#FFF8E1">⚡</div>
+          <div><div class="recovery-opt-name">Zepto Pay</div><div class="recovery-opt-sub">Instant wallet payment</div></div>
+        </div>
+        <div class="recovery-opt">
+          <div class="recovery-opt-icon" style="background:#F5F5F5">💵</div>
+          <div><div class="recovery-opt-name">Cash on Delivery</div><div class="recovery-opt-sub">Pay when order arrives</div></div>
+        </div>
+      </div>
+      <button class="retry-btn">↺ Retry UPI</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="screen-label" id="screen-label">Screen 1 of 5 — Cart Confirmation</div>
+<div class="nav-row">
+  <button class="nav-btn" id="prev-btn" onclick="navigate(-1)" disabled>← Previous</button>
+  <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next →</button>
+</div>
+</div>
+
+<script>
+let cur=0;
+const labels=['Screen 1 of 5 — Cart Confirmation','Screen 2 of 5 — Address Selection','Screen 3 of 5 — Upsell Strip','Screen 4 of 5 — Payment','Screen 5 of 5 — Payment Recovery'];
+function goScreen(n){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.snav').forEach(b=>b.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  document.querySelectorAll('.snav')[n].classList.add('active');
+  document.getElementById('screen-label').textContent=labels[n];
+  document.getElementById('prev-btn').disabled=n===0;
+  document.getElementById('next-btn').disabled=n===4;
+  cur=n;
+}
+function navigate(d){goScreen(Math.max(0,Math.min(4,cur+d)));}
+</script>
