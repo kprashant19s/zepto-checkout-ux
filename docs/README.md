@@ -80,13 +80,6 @@ View the full interactive before/after flow in the live prototype:
 
 [![Prototype](https://img.shields.io/badge/Prototype-Live_Demo-6C47FF?style=for-the-badge)](https://kprashant19s.github.io/zepto-checkout-ux/design/prototypes/zepto_checkout_prototype.html)
 
-| Screen | Before | After |
-|--------|--------|-------|
-| Address Step | ![Before Address](design/assets/address-before.png) | ![After Address](design/assets/address-after.png) |
-| Upsell Module | ![Before Upsell](design/assets/upsell-before.png) | ![After Upsell](design/assets/upsell-after.png) |
-| Payment Recovery | ![Before Payment](design/assets/payment-before.png) | ![After Payment](design/assets/payment-after.png) |
-
-> _Replace image paths above with your actual screenshots from `/design/assets/`_
 
 ---
 
