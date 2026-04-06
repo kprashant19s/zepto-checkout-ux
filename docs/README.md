@@ -14,7 +14,6 @@
 ## 🔗 Quick Links
 
 [![Figma Prototype](https://img.shields.io/badge/Prototype-Live_Demo-6C47FF?style=for-the-badge)](https://kprashant19s.github.io/zepto-checkout-ux/design/prototypes/zepto_checkout_prototype.html)
-[![Loom Walkthrough](https://img.shields.io/badge/Loom-Watch_Walkthrough-625DF5?style=for-the-badge&logo=loom)](https://www.loom.com/share/YOUR_ID_HERE)
 
 ---
 
@@ -121,7 +120,6 @@ View the full interactive before/after flow in the live prototype:
 ![Hotjar](https://img.shields.io/badge/Hotjar-Session_Recording-FF3C00?logo=hotjar&logoColor=white)
 ![Miro](https://img.shields.io/badge/Miro-Affinity_Mapping-FFD02F?logo=miro&logoColor=black)
 ![Google Sheets](https://img.shields.io/badge/Google_Sheets-RICE_Scoring-34A853?logo=google-sheets&logoColor=white)
-![Loom](https://img.shields.io/badge/Loom-Prototype_Walkthrough-625DF5?logo=loom&logoColor=white)
 
 ---
 
