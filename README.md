@@ -77,6 +77,10 @@ This project followed a **Double Diamond** adapted for PM-led UX work:
 
 ## Before & After Comparisons
 
+View the full interactive before/after flow in the live prototype:
+
+[![Prototype](https://img.shields.io/badge/Prototype-Live_Demo-6C47FF?style=for-the-badge)](https://kprashant19s.github.io/zepto-checkout-ux/design/prototypes/zepto_checkout_prototype.html)
+
 | Screen | Before | After |
 |--------|--------|-------|
 | Address Step | ![Before Address](design/assets/address-before.png) | ![After Address](design/assets/address-after.png) |
